@@ -1,0 +1,53 @@
+<div class="card">
+    <div class="card-body">
+        <div class="link-create-ann">
+            <h4><a href="#">Dashboard</a> / <a href="/manage/course">Quản lý khóa học</a> / Đăng khóa học mới</h4>
+        </div>
+        <form [formGroup]="form" class="form" novalidate>
+            <div class="form-group">
+                <label class="col-md-4"><strong>Tiêu đề</strong></label>
+                <input type="text" class="form-control" formControlName="title" #title/>
+            </div>
+            <div *ngIf="form.controls['title'].invalid && (form.controls['title'].dirty
+         || form.controls['title'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['title'].errors.required">
+                    Title is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4"><strong>Upload file</strong></label>
+                <input type="file" name="file" ng2FileSelect [uploader]="uploader" multiple class="form-control" (change)="uploader.uploadAll()">
+            </div>
+            <div>
+                <p *ngFor="let obj of fileNameArr">
+                    {{obj.orginalFileName}} <button class="btn-floating btn-sm btn-default" (click)="copyLinkFile(obj.filename)"><i class="far fa-copy"></i></button>&nbsp;
+                    <button class="btn-floating btn-sm btn-primary" (click)="setThumpbnail(obj.filename)"><i class="fas fa-image"></i></button>&nbsp;
+                    <button class="btn-floating btn-sm btn-danger" (click)="deleteFile(obj.filename)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4"><strong>Tóm tắt</strong></label>
+                <ck-editor name="editor1" [(ngModel)]="editor1" [ngModelOptions]="{standalone: true}" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-4"><strong>Nội dung</strong></label>
+                <ck-editor name="editor2" [(ngModel)]="editor2" [ngModelOptions]="{standalone: true}" skin="moono-lisa" language="en" [fullPage]="true"></ck-editor>
+            </div>
+
+            <div class="form-group">
+                <button (click)="addData(title.value)" type="submit" class="btn btn-primary">Đăng bài</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Xem trước</h5>
+        <div [innerHTML]="editor1" class="content"></div>
+        <div [innerHTML]="editor2" class="content"></div>
+    </div>
+</div>

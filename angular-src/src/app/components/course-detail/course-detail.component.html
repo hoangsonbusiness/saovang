@@ -1,0 +1,17 @@
+<section class="course-index">
+    <div class="container container-news">
+        <div class="row">
+            <div class="col-xs-12 col-md-8 col-lg-9 col-content">
+                <div class="text-center">
+                    <h2 [textContent]="title"></h2>
+                </div>
+                <hr class="my-4">
+                <div class="content" [innerHTML]="content">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4 col-lg-3 col-info">
+                <app-sidebar></app-sidebar>
+            </div>
+        </div>
+    </div>
+</section>

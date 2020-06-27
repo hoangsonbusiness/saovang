@@ -1,0 +1,39 @@
+Node.js & Express REST API
+Passport,js
+MongoDB & Mongoose
+JWT Authentication
+Angular 2 & Angular-CLI
+Angular2-JWT
+Angular 2 Flash Messages
+MEAN Deployment
+
+
+Rest api - Nodejs/Express
+Token generation & authentication
+Cors
+Mongoose ODM
+Angular / Angular-CLI
+Angular router ,  http Module
+Angular-JWT
+Auth Guard
+Angular Flash Messages
+Compile & Deplop
+
+mongo "mongodb+srv://wlxdemo-b54cv.mongodb.net/test" --username wlxdemo
+=============
+Deplop heroku
+
+ cd/your project directory
+
+ 1) git init
+ 2) git add . or git add ['filename']
+ 3) git commit -m "My first File"
+ 4) git remote add origin https://github.com/yourusername/your-repo-name.git
+ 5) git pull origin master ( optional )
+ 6) git push origin master
+ 7) heroku login
+ 8) heroku create
+ 9) git push heroku master
+ 10) heroku open
+ 
+ 

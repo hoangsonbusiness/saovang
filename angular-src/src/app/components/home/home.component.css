@@ -1,0 +1,21 @@
+.row>.col-md-4 {
+    margin-top: 20px;
+}
+
+.card>.card>.row {
+    margin-top: 20px;
+}
+
+.card>.card>.row>.col-md-3 {
+    padding: auto;
+    text-align: center;
+}
+
+.card>.card>.row>.col-md-3>h6 {
+    margin-top: 20px;
+}
+
+b,
+strong {
+    color: #4285f4;
+}

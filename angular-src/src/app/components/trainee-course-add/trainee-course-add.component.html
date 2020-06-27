@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="form" class="form" novalidate>
+            <div class="form-group">
+                <label class="col-md-4"><strong>Khóa sinh viên</strong></label>
+                <input type="text" class="form-control" formControlName="traineeCourse" #traineeCourse/>
+            </div>
+            <div *ngIf="form.controls['traineeCourse'].invalid && (form.controls['traineeCourse'].dirty
+         || form.controls['traineeCourse'].touched)" class="alert alert-danger">
+                <div *ngIf="form.controls['traineeCourse'].errors.required">
+                    Khóa sinh viên là bắt buộc
+                </div>
+            </div>
+
+            <div class="form-group">
+                <!-- Material checked -->
+                <label class="col-md-4"><strong>Môn học</strong></label>
+                <div class="form-check" *ngFor="let obj of data ">
+                    <!-- <input type="checkbox" name="courseArr" class="form-check-input" id="materialChecked2" #courseArr> -->
+                    <input type="checkbox" class="form-check-input" value={{obj._id}} (change)="onChange(obj._id, $event.target.checked)" />
+                    <label class="form-check-label" for="materialChecked2">{{obj.name}}</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <button (click)="addData(traineeCourse.value)" type="submit" class="btn btn-primary">{{buttonName}}</button>
+            </div>
+        </form>
+    </div>
+</div>

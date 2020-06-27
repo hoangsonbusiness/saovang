@@ -1,0 +1,29 @@
+span.name-icon {
+    font-size: 50px;
+    vertical-align: top;
+    margin-right: 10px;
+    color: #4285f4;
+}
+
+.card>.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.card>.contact>.contact-form {
+    max-width: 50%;
+    text-align: center;
+}
+
+.card>.card>.row {
+    margin-top: 20px;
+}
+
+.card>.card>.row>.col-md-3 {
+    padding: auto;
+    text-align: center;
+}
+
+.card>.card>.row>.col-md-3>h6 {
+    margin-top: 20px;
+}

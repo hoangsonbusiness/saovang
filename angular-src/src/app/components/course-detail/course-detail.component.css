@@ -1,0 +1,33 @@
+.news-content {
+    display: flex;
+}
+
+.content {
+    margin-left: 10px;
+}
+
+.my-4 {
+    border-top: 1px solid #609be4;
+}
+
+.data {
+    margin-top: 20px;
+}
+
+.container-news>.row {
+    margin-top: 20px;
+}
+
+.content img {
+    width: 100%;
+}
+
+.course-index {
+    margin-top: 100px;
+}
+
+@media only screen and (max-width: 760px) {
+    .container.container-news {
+        max-width: 100%;
+    }
+}

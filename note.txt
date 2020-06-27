@@ -1,0 +1,6 @@
+1. angular.json  >>> set folder output of angular same with nodejs
+"outputPath": "../public"
+
+2. app.js
+// Set Static Folder >>> set folder output of nodejs
+app.use(express.static(path.join(__dirname, 'public')));

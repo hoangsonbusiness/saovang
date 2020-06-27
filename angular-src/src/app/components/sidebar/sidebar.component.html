@@ -1,0 +1,17 @@
+<div class="course">
+    <div class="title-info">
+        <h4>CÁC KHÓA HỌC</h4>
+    </div>
+    <ul class="ul-info">
+        <li *ngFor="let obj of data"><a [routerLink]="['/khoa-hoc', obj._id]">{{obj.title}}</a></li>
+    </ul>
+</div>
+<div class="contact-info">
+    <div class="title-info">
+        <h4>HỖ TRỢ TRỰC TUYẾN</h4>
+    </div>
+    <ul class="ul-info">
+        <li><a href="#">ZALO : 0943717581</a></li>
+        <li><a href="tel:0943717581">PHONE : 0943717581</a></li>
+    </ul>
+</div>

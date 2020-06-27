@@ -1,0 +1,33 @@
+<form [formGroup]="form" class="form" novalidate>
+    <div class="course-manage">
+        <div>
+            <nav class="navbar navbar-expand-lg navbar-light" style="display:block;">
+                <button class="btn btn-primary" (click)="add()"><i class="fa fa-plus" aria-hidden="true"></i> Tạo mới</button>
+                <a class="btn btn-danger" (click)="delete()"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-stripped">
+                <tbody>
+                    <tr *ngFor="let obj of data | paginate: { id: 'listing_pagination',
+                itemsPerPage: 10,
+                currentPage: page,
+                totalItems: total }">
+                        <td><input type="checkbox" value={{obj._id}} (change)="onChange(obj._id, $event.target.checked)" /></td>
+                        <td>{{obj.date | slice :0:10}} {{obj.date | slice :11:16}}</td>
+                        <td>
+                            <a class="card-link" [routerLink]="['/quan-ly/khoa-hoc/', obj._id]" style="color: blue;">{{obj.title}}</a>
+                        </td>
+                        <td *ngIf="obj.listFileUpload.length > 0"><i class="fa fa-paperclip"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center">
+                <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+            </div>
+
+        </div>
+    </div>
+</form>

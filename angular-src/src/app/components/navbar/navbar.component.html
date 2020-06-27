@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top primary-color">
+    <a class="navbar-brand" [routerLink]="['/']">
+        <img src="assets/img/logo.png" id="logo"> Trung tâm SAO VÀNG
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+                <a class="nav-link" [routerLink]="['/']">Trang chủ </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/gioi-thieu']">Giới thiệu </a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Các khóa học </a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                    <a *ngFor="let obj of data" class="dropdown-item" [routerLink]="['khoa-hoc', obj._id]">{{obj.title}}</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tài liệu </a>
+                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink1">
+                    <a class="dropdown-item" href="#">Tài liệu lý thuyết</a>
+                    <a class="dropdown-item" href="#">Tài liệu thực hành</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/tin-tuc']">Tin tức </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/hoc-phi']">Học phí </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/lien-he']">Liên hệ </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item" *ngIf="!authService.isloggedIn()">
+                <a class="nav-link btn btn-md btn-outline-light m-0 px-3 py-2 z-depth-0 waves-effect" [routerLink]="['/dang-nhap']">
+                    Đăng nhập </a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isloggedIn()">
+                <a class="nav-link " [routerLink]="['/quan-ly']">Dashboard </a>
+            </li>
+            <li class="nav-item" *ngIf="authService.isloggedIn()">
+                <a class="nav-link " (click)="onLogoutClick()">Đăng xuất </a>
+            </li>
+        </ul>
+    </div>
+</nav>
